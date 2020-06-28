@@ -61,7 +61,7 @@ ChatBot::ChatBot(const ChatBot& source) // 2 : copy constructor
 }
 ChatBot& ChatBot::operator=(const ChatBot& source) // 3 : copy assignment operator
 {
-    std::cout << "ChatBot: ASSIGNING content of instance " << &source << " to instance " << this << std::endl;
+    std::cout << "ChatBot: copy ASSIGNING content of instance " << &source << " to instance " << this << std::endl;
     if (this == &source)
         return *this;
 

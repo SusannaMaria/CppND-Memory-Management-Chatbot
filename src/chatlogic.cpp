@@ -163,9 +163,9 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
 
                             // create new edge
                             auto edge = std::make_unique<GraphEdge>(id);
-                            edge->SetChildNode((*childNode).get());
-                            edge->SetParentNode((*parentNode).get());
-                            // _edges.push_back(edge.get());
+                            edge->SetChildNode(childNode->get());
+                            edge->SetParentNode(parentNode->get());
+                            _edges.push_back(edge.get());
 
                             // find all keywords for current node
                             AddAllTokensToElement("KEYWORD", tokens, *edge);
@@ -221,11 +221,12 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
     // create instance of chatbot
     ChatBot bot("../images/chatbot.png");
 
-    // add pointer to chatlogic so that chatbot answers can be passed on to the GUI
-    bot.SetChatLogicHandle(this);
-
+    
     // add chatbot to graph root node
     bot.SetRootNode(rootNode);
+    // add pointer to chatlogic so that chatbot answers can be passed on to the GUI
+
+    bot.SetChatLogicHandle(this);
     rootNode->MoveChatbotHere(std::move(bot));
     
 
