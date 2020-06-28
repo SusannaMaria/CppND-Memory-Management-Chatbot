@@ -29,8 +29,8 @@ public:
 
     //// STUDENT CODE
     ////
-    ChatBot(const ChatBot& source)= delete;                 // 2 : copy constructor
-    ChatBot& operator=(const ChatBot& source)=delete;      // 4 : copy assignment operator
+    ChatBot(const ChatBot& source);                 // 2 : copy constructor
+    ChatBot& operator=(const ChatBot& source);      // 4 : copy assignment operator
     ChatBot(ChatBot&& source);                      // 3 : move constructor
     ChatBot& operator=(ChatBot&& source);           // 5 : move assignment operator
 
