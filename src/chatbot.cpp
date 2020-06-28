@@ -94,8 +94,8 @@ ChatBot::~ChatBot()
             return *this;
 
         delete _image;
-        delete _chatLogic;
-        delete _rootNode;
+        // delete _chatLogic;
+        // delete _rootNode;
 
         _image = source._image;
         _chatLogic = source._chatLogic;
