@@ -45,28 +45,28 @@ ChatBot::~ChatBot()
 //// STUDENT CODE
 ////
 
-    ChatBot::ChatBot(const ChatBot &source) // 2 : copy constructor
-    {
-        *_image = *source._image;
-        *_chatLogic = *source._chatLogic;
-        *_rootNode = *source._rootNode;
+    // ChatBot::ChatBot(const ChatBot &source) // 2 : copy constructor
+    // {
+    //     *_image = *source._image;
+    //     *_chatLogic = *source._chatLogic;
+    //     *_rootNode = *source._rootNode;
 
-        std::cout << "ChatBot: COPYING content of instance " << &source << " to instance " << this << std::endl;
-    }
-    ChatBot& ChatBot::operator=(const ChatBot &source) // 3 : copy assignment operator
-    {
-        std::cout << "ChatBot: ASSIGNING content of instance " << &source << " to instance " << this << std::endl;
-        if (this == &source)
-            return *this;
-        delete _image;
-        delete _chatLogic;
-        delete _rootNode;
+    //     std::cout << "ChatBot: COPYING content of instance " << &source << " to instance " << this << std::endl;
+    // }
+    // ChatBot& ChatBot::operator=(const ChatBot &source) // 3 : copy assignment operator
+    // {
+    //     std::cout << "ChatBot: ASSIGNING content of instance " << &source << " to instance " << this << std::endl;
+    //     if (this == &source)
+    //         return *this;
+    //     delete _image;
+    //     delete _chatLogic;
+    //     delete _rootNode;
 
-        *_image = *source._image;
-        *_chatLogic = *source._chatLogic;
-        *_rootNode = *source._rootNode;
-        return *this;
-    }
+    //     *_image = *source._image;
+    //     *_chatLogic = *source._chatLogic;
+    //     *_rootNode = *source._rootNode;
+    //     return *this;
+    // }
     ChatBot::ChatBot(ChatBot &&source) // 4 : move constructor
     {
 
