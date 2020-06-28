@@ -71,13 +71,21 @@ ChatBot::~ChatBot()
     {
 
         std::cout << "ChatBot: MOVING (c’tor) instance " << &source << " to instance " << this << std::endl;
+
         _image = source._image;
         _chatLogic = source._chatLogic;
         _rootNode = source._rootNode;
 
+        _currentNode = source._currentNode;
+
+        _chatLogic->SetChatbotHandle(this);
+
         source._image = nullptr;
         source._chatLogic = nullptr;
         source._rootNode = nullptr;
+        source._currentNode = nullptr;
+        
+
     }    
     ChatBot& ChatBot::operator=(ChatBot &&source) // 5 : move assignment operator
     {
@@ -92,6 +100,10 @@ ChatBot::~ChatBot()
         _image = source._image;
         _chatLogic = source._chatLogic;
         _rootNode = source._rootNode;
+
+        _currentNode = source._currentNode;
+
+        _chatLogic->SetChatbotHandle(this);
 
         source._image = nullptr;
         source._chatLogic = nullptr;
