@@ -65,8 +65,8 @@ ChatBot& ChatBot::operator=(const ChatBot& source) // 3 : copy assignment operat
     if (this == &source)
         return *this;
 
-    delete _chatLogic;
-    delete _rootNode;
+    // delete _chatLogic;
+    //delete _rootNode;
     delete _image;
 
     _chatLogic = source._chatLogic;
