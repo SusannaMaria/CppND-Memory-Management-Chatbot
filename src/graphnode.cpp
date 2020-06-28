@@ -10,8 +10,8 @@ GraphNode::~GraphNode()
 {
     //// STUDENT CODE
     ////
-
-    delete _chatBot; 
+    // Does it make sense to delete _chatBot here?
+    //delete _chatBot; 
 
     ////
     //// EOF STUDENT CODE
