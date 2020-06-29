@@ -10,6 +10,10 @@
 // forward declarations
 class GraphEdge;
 
+/**
+ * @brief 
+ * 
+ */
 class GraphNode
 {
 private:
