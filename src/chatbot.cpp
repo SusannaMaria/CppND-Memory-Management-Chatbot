@@ -8,14 +8,13 @@
 #include "graphedge.h"
 #include "chatbot.h"
 
-// constructor WITHOUT memory allocation
-ChatBot::ChatBot()
-{
-    // invalidate data handles
-    _image = nullptr;
-    _chatLogic = nullptr;
-    _rootNode = nullptr;
-}
+//
+
+/**
+ * @brief Construct a new ChatBot object, constructor WITHOUT memory allocation
+ * 
+ */
+ChatBot::ChatBot() : _image(nullptr), _currentNode(nullptr), _rootNode(nullptr), _chatLogic(nullptr) {}
 
 // constructor WITH memory allocation
 ChatBot::ChatBot(std::string filename)
@@ -25,6 +24,7 @@ ChatBot::ChatBot(std::string filename)
     // invalidate data handles
     _chatLogic = nullptr;
     _rootNode = nullptr;
+    _currentNode = nullptr;
 
     // load image into heap memory
     _image = new wxBitmap(filename, wxBITMAP_TYPE_PNG);
@@ -45,21 +45,21 @@ ChatBot::~ChatBot()
 //// STUDENT CODE
 ////
 
-ChatBot::ChatBot(const ChatBot& source) // 2 : copy constructor
+ChatBot::ChatBot(const ChatBot &source) // 2 : copy constructor
 {
     std::cout << "ChatBot: COPYING content of instance " << &source << " to instance " << this << std::endl;
 
     _chatLogic = source._chatLogic;
     _rootNode = source._rootNode;
+    _currentNode = source._currentNode;
 
     if (source._image != NULL)
     {
         _image = new wxBitmap();
         *_image = *(source._image);
     }
-
 }
-ChatBot& ChatBot::operator=(const ChatBot& source) // 3 : copy assignment operator
+ChatBot &ChatBot::operator=(const ChatBot &source) // 3 : copy assignment operator
 {
     std::cout << "ChatBot: copy ASSIGNING content of instance " << &source << " to instance " << this << std::endl;
     if (this == &source)
@@ -71,11 +71,13 @@ ChatBot& ChatBot::operator=(const ChatBot& source) // 3 : copy assignment operat
 
     _chatLogic = source._chatLogic;
     _rootNode = source._rootNode;
+    _currentNode = source._currentNode;
 
-    if(source._image != NULL){
+    if (source._image != NULL)
+    {
         _image = new wxBitmap();
         *_image = *(source._image);
-    }    
+    }
     return *this;
 }
 ChatBot::ChatBot(ChatBot &&source) // 4 : move constructor
@@ -91,7 +93,7 @@ ChatBot::ChatBot(ChatBot &&source) // 4 : move constructor
 
     _chatLogic->SetChatbotHandle(this);
 
-    source._image = nullptr;
+    source._image = NULL;
     source._chatLogic = nullptr;
     source._rootNode = nullptr;
     source._currentNode = nullptr;
