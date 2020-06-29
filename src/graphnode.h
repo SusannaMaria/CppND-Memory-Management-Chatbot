@@ -32,7 +32,7 @@ private:
 
 public:
     // constructor / destructor
-    GraphNode(int id);
+    explicit GraphNode(int id);
     ~GraphNode();
 
     // getter / setter

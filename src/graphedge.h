@@ -20,7 +20,8 @@ private:
 
 public:
     // constructor / desctructor
-    GraphEdge(int id);
+    // https://stackoverflow.com/questions/121162/what-does-the-explicit-keyword-mean
+    explicit GraphEdge(int id);
 
     // getter / setter
     int GetID() { return _id; }

@@ -126,7 +126,7 @@ ChatBot &ChatBot::operator=(ChatBot &&source) // 5 : move assignment operator
 ////
 //// EOF STUDENT CODE
 
-void ChatBot::ReceiveMessageFromUser(std::string message)
+void ChatBot::ReceiveMessageFromUser(const std::string message)
 {
     // loop over all edges and keywords and compute Levenshtein distance to query
     typedef std::pair<GraphEdge *, int> EdgeDist;

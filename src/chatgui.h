@@ -69,7 +69,7 @@ private:
 
 public:
     // constructor / desctructor
-    ChatBotFrame(const wxString &title):;
+    explicit ChatBotFrame(const wxString &title);
 };
 
 // control panel for background image display
@@ -80,7 +80,7 @@ class ChatBotFrameImagePanel : public wxPanel
 
 public:
     // constructor / desctructor
-    ChatBotFrameImagePanel(wxFrame *parent);
+    explicit ChatBotFrameImagePanel(wxFrame *parent);
 
     // events
     void paintEvent(wxPaintEvent &evt);
