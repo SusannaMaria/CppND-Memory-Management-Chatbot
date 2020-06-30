@@ -122,7 +122,7 @@ ChatBot &ChatBot::operator=(const ChatBot &source) // 3 : copy assignment operat
 ChatBot::ChatBot(ChatBot &&source)
 {
 
-    std::cout << "ChatBot: MOVING (c’tor) instance " << &source << " to instance " << this << std::endl;
+    std::cout << "ChatBot: MOVING instance " << &source << " to instance " << this << std::endl;
 
     _image = source._image;
     _chatLogic = source._chatLogic;
