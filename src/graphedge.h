@@ -6,6 +6,10 @@
 
 class GraphNode; // forward declaration
 
+/**
+ * Graphedge class
+ * 
+ */
 class GraphEdge
 {
 private:

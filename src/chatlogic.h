@@ -10,6 +10,10 @@ class ChatBot;
 class GraphEdge;
 class GraphNode;
 
+/**
+ * ChatLogic class
+ * 
+ */
 class ChatLogic
 {
 private:
