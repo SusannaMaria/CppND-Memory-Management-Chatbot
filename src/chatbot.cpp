@@ -8,15 +8,17 @@
 #include "graphedge.h"
 #include "chatbot.h"
 
-//
-
 /**
- * @brief Construct a new ChatBot object, constructor WITHOUT memory allocation
+ * Construct a new ChatBot object, constructor WITHOUT memory allocation
  * 
  */
-ChatBot::ChatBot() : _image(nullptr), _currentNode(nullptr), _rootNode(nullptr), _chatLogic(nullptr) {}
+ChatBot::ChatBot() : _image(NULL), _currentNode(nullptr), _rootNode(nullptr), _chatLogic(nullptr) {}
 
-// constructor WITH memory allocation
+/**
+ * Construct a new ChatBot object constructor WITH memory allocation
+ * 
+ * @param filename Image which is used as background in the UI
+ */
 ChatBot::ChatBot(std::string filename)
 {
     std::cout << "ChatBot Constructor" << std::endl;
@@ -30,6 +32,10 @@ ChatBot::ChatBot(std::string filename)
     _image = new wxBitmap(filename, wxBITMAP_TYPE_PNG);
 }
 
+/**
+ * Destroy the ChatBot object
+ * 
+ */
 ChatBot::~ChatBot()
 {
     std::cout << "ChatBot Destructor" << std::endl;
@@ -45,7 +51,14 @@ ChatBot::~ChatBot()
 //// STUDENT CODE
 ////
 
-ChatBot::ChatBot(const ChatBot &source) // 2 : copy constructor
+/**
+ * Construct a new ChatBot object 
+ * 
+ * STUDENT CODE: Rule of 5 - copy constructor
+ * 
+ * @param source 
+ */
+ChatBot::ChatBot(const ChatBot &source)
 {
     std::cout << "ChatBot: COPYING content of instance " << &source << " to instance " << this << std::endl;
 
@@ -59,15 +72,22 @@ ChatBot::ChatBot(const ChatBot &source) // 2 : copy constructor
         *_image = *(source._image);
     }
 }
+
+/**
+ * copy assignment operator of ChatBot class
+ * 
+ * STUDENT CODE: Rule of 5 - copy assignment operator
+ * @param source 
+ * @return ChatBot& 
+ */
 ChatBot &ChatBot::operator=(const ChatBot &source) // 3 : copy assignment operator
 {
     std::cout << "ChatBot: copy ASSIGNING content of instance " << &source << " to instance " << this << std::endl;
     if (this == &source)
         return *this;
 
-    // delete _chatLogic;
-    //delete _rootNode;
     delete _image;
+    _image = NULL;
 
     _chatLogic = source._chatLogic;
     _rootNode = source._rootNode;
@@ -80,7 +100,15 @@ ChatBot &ChatBot::operator=(const ChatBot &source) // 3 : copy assignment operat
     }
     return *this;
 }
-ChatBot::ChatBot(ChatBot &&source) // 4 : move constructor
+
+/**
+ * Construct a ChatBot object
+ * 
+ * STUDENT CODE: Rule of 5 - move constructor
+ * 
+ * @param source 
+ */
+ChatBot::ChatBot(ChatBot &&source)
 {
 
     std::cout << "ChatBot: MOVING (c’tor) instance " << &source << " to instance " << this << std::endl;
@@ -98,6 +126,14 @@ ChatBot::ChatBot(ChatBot &&source) // 4 : move constructor
     source._rootNode = nullptr;
     source._currentNode = nullptr;
 }
+
+/**
+ * move assignment operator of ChatBot class
+ * 
+ * STUDENT CODE: Rule of 5 - move assignment operator
+ * @param source 
+ * @return ChatBot& 
+ */
 ChatBot &ChatBot::operator=(ChatBot &&source) // 5 : move assignment operator
 {
     std::cout << "ChatBot: MOVING (assign) instance " << &source << " to instance " << this << std::endl;
@@ -105,8 +141,6 @@ ChatBot &ChatBot::operator=(ChatBot &&source) // 5 : move assignment operator
         return *this;
 
     delete _image;
-    // delete _chatLogic;
-    // delete _rootNode;
 
     _image = source._image;
     _chatLogic = source._chatLogic;
@@ -116,7 +150,7 @@ ChatBot &ChatBot::operator=(ChatBot &&source) // 5 : move assignment operator
 
     _chatLogic->SetChatbotHandle(this);
 
-    source._image = nullptr;
+    source._image = NULL;
     source._chatLogic = nullptr;
     source._rootNode = nullptr;
 
@@ -126,6 +160,11 @@ ChatBot &ChatBot::operator=(ChatBot &&source) // 5 : move assignment operator
 ////
 //// EOF STUDENT CODE
 
+/**
+ * receive message from user, identify best fitting edge and set current node to it
+ * 
+ * @param message Chat message from user
+ */
 void ChatBot::ReceiveMessageFromUser(const std::string message)
 {
     // loop over all edges and keywords and compute Levenshtein distance to query
@@ -160,6 +199,11 @@ void ChatBot::ReceiveMessageFromUser(const std::string message)
     _currentNode->MoveChatbotToNewNode(newNode);
 }
 
+/**
+ * set current node of chatbot and send answer to user 
+ * 
+ * @param node Node which provides the right answer to the user
+ */
 void ChatBot::SetCurrentNode(GraphNode *node)
 {
     // update pointer to current node
@@ -175,6 +219,15 @@ void ChatBot::SetCurrentNode(GraphNode *node)
     _chatLogic->SendMessageToUser(answer);
 }
 
+/**
+ * Measuring the difference between two sequences of strings, to identify the best fitting answer of user message
+ * 
+ * see: https://en.wikipedia.org/wiki/Levenshtein_distance
+ * 
+ * @param s1 First String for compare
+ * @param s2 Second string to compare
+ * @return int Distance of strings as integer
+ */
 int ChatBot::ComputeLevenshteinDistance(std::string s1, std::string s2)
 {
     // convert both strings to upper-case before comparing
