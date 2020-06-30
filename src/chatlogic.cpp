@@ -11,7 +11,10 @@
 #include "chatbot.h"
 #include "chatlogic.h"
 
-
+/**
+ * Construct a new ChatLogic object
+ * 
+ */
 ChatLogic::ChatLogic()
 {
     //// STUDENT CODE
@@ -23,6 +26,10 @@ ChatLogic::ChatLogic()
     //// EOF STUDENT CODE
 }
 
+/**
+ * Destroy the ChatLogic object
+ * 
+ */
 ChatLogic::~ChatLogic()
 {
     //// STUDENT CODE
@@ -32,6 +39,14 @@ ChatLogic::~ChatLogic()
     //// EOF STUDENT CODE
 }
 
+/**
+ * Add all token (e.g. possible answers) to elements (e.g. nodes)
+ * 
+ * @tparam T 
+ * @param tokenID 
+ * @param tokens 
+ * @param element 
+ */
 template <typename T>
 void ChatLogic::AddAllTokensToElement(std::string tokenID, tokenlist &tokens, T &element)
 {
@@ -51,6 +66,11 @@ void ChatLogic::AddAllTokensToElement(std::string tokenID, tokenlist &tokens, T 
         }
     }
 }
+/**
+ * Load graph file with answers into tree structure 
+ * 
+ * @param filename 
+ */
 
 void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
 {
@@ -144,7 +164,6 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
                             auto edge = std::make_unique<GraphEdge>(id);
                             edge->SetChildNode(childNode->get());
                             edge->SetParentNode(parentNode->get());
-                            _edges.push_back(edge.get());
 
                             // find all keywords for current node
                             AddAllTokensToElement("KEYWORD", tokens, *edge);
@@ -213,26 +232,52 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
     //// EOF STUDENT CODE
 }
 
+/**
+ * Set handle to panal dialog
+ * 
+ * @param panelDialog 
+ */
 void ChatLogic::SetPanelDialogHandle(ChatBotPanelDialog *panelDialog)
 {
     _panelDialog = panelDialog;
 }
 
+/**
+ * Set chatbot handle 
+ * 
+ * @param chatbot 
+ */
 void ChatLogic::SetChatbotHandle(ChatBot *chatbot)
 {
     _chatBot = chatbot;
 }
 
+/**
+ * Got message from User
+ * 
+ * @param message 
+ */
 void ChatLogic::SendMessageToChatbot(std::string message)
 {
     _chatBot->ReceiveMessageFromUser(message);
 }
 
+/**
+ * Send message to user
+ * 
+ * @param message 
+ */
 void ChatLogic::SendMessageToUser(std::string message)
 {
     _panelDialog->PrintChatbotResponse(message);
 }
 
+
+/**
+ * Get reference of used background image
+ * 
+ * @return wxBitmap* 
+ */
 wxBitmap *ChatLogic::GetImageFromChatbot()
 {
     return _chatBot->GetImageHandle();

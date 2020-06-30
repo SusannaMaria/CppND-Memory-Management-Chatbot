@@ -7,6 +7,10 @@
 class GraphNode; // forward declaration
 class ChatLogic; // forward declaration
 
+/**
+ * ChatBot class
+ * 
+ */
 class ChatBot
 {
 private:
@@ -23,17 +27,16 @@ private:
 
 public:
     // constructors / destructors
-    ChatBot();                     // constructor WITHOUT memory allocation
+    ChatBot();                              // constructor WITHOUT memory allocation
     explicit ChatBot(std::string filename); // constructor WITH memory allocation
     ~ChatBot();
 
     //// STUDENT CODE
     ////
-    ChatBot(const ChatBot& source);                 // 2 : copy constructor
-    ChatBot& operator=(const ChatBot& source);      // 4 : copy assignment operator
-    ChatBot(ChatBot&& source);                      // 3 : move constructor
-    ChatBot& operator=(ChatBot&& source);           // 5 : move assignment operator
-
+    ChatBot(const ChatBot &source);            // 2 : copy constructor
+    ChatBot(ChatBot &&source);                 // 3 : move constructor
+    ChatBot &operator=(const ChatBot &source); // 4 : copy assignment operator
+    ChatBot &operator=(ChatBot &&source);      // 5 : move assignment operator
     ////
     //// EOF STUDENT CODE
 
