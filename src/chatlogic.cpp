@@ -1,3 +1,14 @@
+/**
+ * @file chatlogic.cpp
+ * @author Stephen Welch, Susanna Maria
+ * @brief chatlogic class implementation
+ * @version 0.1
+ * @date 2020-06-30
+ * 
+ * @copyright MIT License
+ * 
+ */
+
 #include <fstream>
 #include <sstream>
 #include <iostream>

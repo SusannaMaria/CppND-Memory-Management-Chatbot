@@ -1,3 +1,14 @@
+/**
+ * @file graphedge.h
+ * @author Stephen Welch, Susanna Maria
+ * @brief graphedge class definition
+ * @version 0.1
+ * @date 2020-06-30
+ * 
+ * @copyright MIT License
+ * 
+ */
+
 #ifndef GRAPHEDGE_H_
 #define GRAPHEDGE_H_
 

@@ -1,3 +1,14 @@
+/**
+ * @file graphedge.cpp
+ * @author Stephen Welch
+ * @brief graphedge class implementation
+ * @version 0.1
+ * @date 2020-06-30
+ * 
+ * @copyright MIT License
+ * 
+ */
+
 #include "graphnode.h"
 #include "graphedge.h"
 

@@ -1,3 +1,14 @@
+/**
+ * @file graphnode.h
+ * @author Stephen Welch, Susanna Maria
+ * @brief graphnode class definition
+ * @version 0.1
+ * @date 2020-06-30
+ * 
+ * @copyright MIT License
+ * 
+ */
+
 #ifndef GRAPHNODE_H_
 #define GRAPHNODE_H_
 

@@ -1,3 +1,14 @@
+/**
+ * @file chatgui.cpp
+ * @author Stephen Welch, Susanna Maria
+ * @brief chatgui class implementation
+ * @version 0.1
+ * @date 2020-06-30
+ * 
+ * @copyright MIT License
+ * 
+ */
+
 #include <wx/filename.h>
 #include <wx/colour.h>
 #include <wx/image.h>

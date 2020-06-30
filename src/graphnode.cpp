@@ -1,3 +1,15 @@
+/**
+ * @file graphnode.cpp
+ * @author Stephen Welch, Susanna Maria
+ * @brief graphnode class implementation
+ * @version 0.1
+ * @date 2020-06-30
+ * 
+ * @copyright MIT License
+ * 
+ */
+
+
 #include "graphedge.h"
 #include "graphnode.h"
 

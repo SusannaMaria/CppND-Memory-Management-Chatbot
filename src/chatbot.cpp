@@ -1,3 +1,14 @@
+/**
+ * @file chatbot.cpp
+ * @author Stephen Welch, Susanna Maria
+ * @brief chatbot class implementation
+ * @version 0.1
+ * @date 2020-06-30
+ * 
+ * @copyright MIT License
+ * 
+ */
+
 #include <iostream>
 #include <random>
 #include <algorithm>

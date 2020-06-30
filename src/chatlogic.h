@@ -1,3 +1,14 @@
+/**
+ * @file chatlogic.h
+ * @author Stephen Welch, Susanna Maria
+ * @brief chatlogic class definition
+ * @version 0.1
+ * @date 2020-06-30
+ * 
+ * @copyright MIT License
+ * 
+ */
+
 #ifndef CHATLOGIC_H_
 #define CHATLOGIC_H_
 #include <memory>

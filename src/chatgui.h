@@ -1,3 +1,14 @@
+/**
+ * @file chatgui.h
+ * @author Stephen Welch, Susanna Maria
+ * @brief chatgui class definition
+ * @version 0.1
+ * @date 2020-06-30
+ * 
+ * @copyright MIT License
+ * 
+ */
+
 #ifndef CHATGUI_H_
 #define CHATGUI_H_
 

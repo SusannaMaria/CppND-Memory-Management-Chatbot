@@ -1,3 +1,14 @@
+/**
+ * @file chatbot.h
+ * @author Stephen Welch, Susanna Maria
+ * @brief chatbot class definition
+ * @version 0.1
+ * @date 2020-06-30
+ * 
+ * @copyright MIT License
+ * 
+ */
+
 #ifndef CHATBOT_H_
 #define CHATBOT_H_
 
